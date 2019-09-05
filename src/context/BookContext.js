@@ -3,7 +3,7 @@ import uuid from 'uuid/v1';
 
 export const BookContext = createContext();
 
-const BookContextProvider = ({children}) => {
+const BookContextProvider = (props) => {
 
     const [books,setBooks] =  useState([
        {title:'Elementary Knowledge', author:'Brian Stinckx',id:uuid()},
@@ -18,7 +18,7 @@ const BookContextProvider = ({children}) => {
    }
     return (
         <BookContext.Provider value={{books,addBook,removeBook}}>
-           {children} 
+           {props.children} 
         </BookContext.Provider>
     )
 }
